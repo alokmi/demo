@@ -1,0 +1,38 @@
+# List of operations supported
+# scalar JSON
+type Query {
+    genes(accessions: [String!]): [Gene]
+}
+
+type Subscription {
+    citation(accession: String): Citation
+}
+
+type Gene {
+	chromosome: String
+    ensgId: String
+    enstId: String
+    enspId: String
+    protein: Protein
+}
+
+type Protein {
+    name: String
+    type: String
+    variation: Variation
+    comments: String
+}
+
+type Variation {
+    begin: Int
+    end: Int
+    wildType: String
+    alternativeSequence: String
+    consequence: String
+}
+
+type Citation {
+	type: String
+	title: String
+	authors: [String]
+}
